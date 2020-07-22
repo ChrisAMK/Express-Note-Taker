@@ -28,7 +28,13 @@ server.get("/api/notes", function(req, res) {
 server.get("/api/notes:id", function(req, res) {
     var addedNote = parseInt(req.params.id);
 
-    for (let key in notes) {}
+    for (let key in notes) {
+        let {id, title, text} = tasks[key];
+
+        if (id === addedNote) {
+            res.json({"id": id, "title": title, "text": text});
+        }
+    }
 })
 
 
